@@ -1,0 +1,86 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.carousel {
+  margin-top: calc($index * 4);
+}
+
+.cardContainer {
+  @include block-shadow;
+  background-color: $light-color;
+  height: 100%;
+}
+
+.card {
+  width: calc($col-width * 12 + 11 * $grid-gutter - $index);
+
+  @include respond-to('medium') {
+    width: calc($col-width * 6 + 5 * $grid-gutter - $index * 0.25);
+  }
+  padding: calc($index * 1.5);
+  display: flex;
+  flex-direction: column;
+  gap: calc($index * 2);
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  p {
+    font-size: 2rem;
+    font-family: "LT Remark", serif;
+    color: $dark-color;
+  }
+}
+
+.star {
+  height: calc($index * 2);
+}
+
+.quote {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.starsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.authorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $index;
+  width: fit-content;
+  margin-top: auto;
+
+  a {
+    text-decoration: none;
+
+    @include hoverUnderline($dark-color)
+  }
+
+  cite {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: normal;
+    font-family: "LT Remark", serif;
+    text-transform: uppercase;
+    color: $dark-color;
+  }
+
+  time {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $accent-color;
+    font-family: "Manrope", sans-serif;
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: $sep-color;
+  }
+}

@@ -1,0 +1,166 @@
+:root {
+  --index: 10px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --index: 12px;
+  }
+}
+@media (min-width: 900px) {
+  :root {
+    --index: 14px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --index: 16px;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --index: 20px;
+  }
+}
+.carousel {
+  margin-top: calc(var(--index) * 4);
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.07) 0 45px 80px, rgba(0, 0, 0, 0.0463) 0 16.43px 29.2px, rgba(0, 0, 0, 0.0365) 0 7.97px 14.18px, rgba(0, 0, 0, 0.0924) 0 3.91px 6.95px, rgba(0, 0, 0, 0.0207) 0 1.55px 2.75px;
+  width: calc((100vw - 2 * var(--index) * 3 - 264px) / 12 * 12 + 264px - var(--index));
+  background-color: #FFFCF9;
+  padding: calc(var(--index) * 1.5);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--index) * 2);
+}
+@media (min-width: 900px) {
+  .card {
+    width: calc((100vw - 2 * var(--index) * 3 - 264px) / 12 * 6 + 120px - var(--index) * 0.25);
+  }
+}
+
+.cardInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--index) * 1.5);
+}
+.cardInfo .cardHeading {
+  font-family: "LT Remark", serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.cardInfo .features {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+}
+.cardInfo .separator {
+  display: flex;
+  align-items: center;
+}
+.cardInfo .verticalSeparator {
+  width: calc(var(--index) * 0.0625);
+  height: 1rem;
+  background-color: #B2AFAC;
+}
+.cardInfo .additionalInfoBtn {
+  font-size: 1.125rem;
+  color: #406949;
+  text-transform: uppercase;
+  width: fit-content;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.cardInfo .additionalInfoBtn::after {
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  background-color: #406949;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.cardInfo .additionalInfoBtn:hover::after {
+  transform: scaleX(1);
+}
+
+.horizontalSeparator {
+  width: 100%;
+  height: calc(var(--index) * 0.0625);
+  background-color: #B2AFAC;
+}
+
+.bookingSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.bookingSection .priceBlock {
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--index) * 0.5);
+}
+.bookingSection .priceBlock .hint {
+  font-size: 1rem;
+}
+.bookingSection .priceBlock .price {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowLine {
+  width: 28px;
+  height: 2px;
+  background-color: #FFFCF9;
+  border-radius: 2px;
+}
+
+.arrowHead {
+  rotate: 45deg;
+  height: 20px;
+  translate: -12px;
+}
+.arrowHead::before, .arrowHead::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 10px;
+  background-color: #FFFCF9;
+  border-radius: 2px;
+}
+.arrowHead::after {
+  rotate: 90deg;
+  translate: 4px 4px;
+}
+
+.leftArrow {
+  transform: scaleX(-1);
+}
+
+.arrowContainer.leftArrow .arrowLine {
+  background-color: #406949;
+}
+.arrowContainer.leftArrow .arrowHead::before, .arrowContainer.leftArrow .arrowHead::after {
+  background-color: #406949;
+}
+
+/*# sourceMappingURL=ApartmentsCarousel.module.css.map */

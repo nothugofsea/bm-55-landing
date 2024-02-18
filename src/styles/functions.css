@@ -1,0 +1,26 @@
+:root {
+  --index: 10px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --index: 12px;
+  }
+}
+@media (min-width: 900px) {
+  :root {
+    --index: 14px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --index: 16px;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --index: 20px;
+  }
+}
+
+/*# sourceMappingURL=functions.css.map */

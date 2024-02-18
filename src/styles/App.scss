@@ -1,0 +1,258 @@
+@import "variables";
+@import "fonts";
+@import "mixins";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 100%;
+}
+
+html {
+  font-size: $index;
+}
+
+body {
+  background-color: #F1EBE1;
+}
+
+p {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.heading, .subheading, .handwritten-text {
+  font-weight: 400;
+}
+
+.heading {
+  font-family: "LT Remark", serif;
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+.subheading {
+  font-family: "Manrope", sans-serif;
+}
+
+.handwritten-text {
+  font-family: "mr_HamiltoneG", serif;
+  color: $accent-color;
+}
+
+.heading, .subheading {
+  color: $dark-color;
+}
+
+.main-section {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include respond-to('large') {
+    height: 100vh;
+    display: block;
+  }
+  
+  .main-content {
+    .headings {
+      width: 100%;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc($index * 4);
+    height: fit-content;
+    padding: calc(12 * $index) $side-margin 0;
+    align-items: center;
+
+    @include respond-to('large') {
+      width: 50vw;
+      padding: calc($side-margin + $row-width * 3 + $grid-gutter * 2) $side-margin 0;
+      align-items: flex-start;
+    }
+
+    .handwritten-text {
+      font-size: 4rem;
+    }
+
+    .heading {
+      font-size: 6rem;
+      margin-top: calc($index * 0.75);
+    }
+
+    .subheading {
+      font-size: 1.5rem;
+    }
+  }
+
+  .image {
+    width: 100vw;
+    height: 50vh;
+    margin-top: calc($index * -4.5);
+
+    @include respond-to('large') {
+      position: absolute;
+      width: 50vw;
+      height: 100vh;
+      top: 0;
+      right: 0;
+      max-height: none;
+      margin: 0;
+    }
+
+    z-index: -1;
+    border-left: calc($index * 0.0625) solid #B2AFAC;
+
+    .carousel, .slider-wrapper, .slider, .slide, .slide div, .slide img {
+      height: 100%;
+    }
+    .slide img {
+      object-fit: cover;
+      filter: brightness(80%);
+    }
+  }
+}
+
+.react-datepicker {
+  border: calc($index * 0.0625) solid $sep-color;
+  background-color: $light-color;
+  border-radius: 0;
+  font-family: "Manrope", sans-serif;
+
+  @include block-shadow;
+}
+
+.react-datepicker__tab-loop {
+  position: absolute;
+}
+
+.react-datepicker__day--selected {
+  background-color: $accent-color;
+
+  &:hover {
+    background-color: #365f3f;
+  }
+}
+
+// calendar
+
+.react-datepicker__day:hover,
+.react-datepicker__day--selected,
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--keyboard-selected {
+  border-radius: 0;
+}
+
+.react-datepicker__header {
+  background-color: $light-color;
+  border-bottom: 1px solid $sep-color;
+}
+
+.react-datepicker__current-month {
+  text-transform: capitalize;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #c0e3c7;
+
+  &:hover {
+    background-color: $accent-color;
+  }
+}
+
+.react-datepicker__input-container > span {
+  outline: none;
+  border: none;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 1.125rem;
+
+  color: $sep-color;
+  cursor: pointer;
+}
+
+.modal-container {
+  @include flexCenter;
+
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding: calc($index * 2);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.booking-iframe {
+  height: 100%;
+  width: 100%;
+
+  border: none;
+  border-radius: 20px;
+}
+
+.section {
+  border-top: 1px solid $sep-color;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  padding: $side-margin 0;
+  gap: $side-margin;
+
+  @include respond-to('small') {
+    flex-direction: row;
+    padding: 0;
+    gap: 0;
+  }
+
+  li {
+    list-style-type: "— ";
+    margin-bottom: calc($index * 0.25);
+  }
+
+  .block-container {
+    padding: 0 $side-margin;
+
+    @include respond-to('small') {
+      padding: $side-margin;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $sep-color;
+    }
+  }
+
+  .heading-container {
+    flex: 1;
+  }
+
+  .description-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.apartments-section, .reviews-section {
+  padding: $side-margin;
+  overflow: hidden;
+
+  .handwritten-text {
+    display: none;
+
+    @include respond-to('small') {
+      display: inline;
+    }
+  }
+}

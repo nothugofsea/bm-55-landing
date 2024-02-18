@@ -1,0 +1,82 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.contactsSection {
+  padding: $side-margin;
+}
+
+.container {
+  @include block-shadow;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to('small') {
+    flex-direction: row;
+  }
+}
+
+.contacts {
+  @include respond-to('small') {
+    width: calc($index * 28.25);
+  }
+
+  background-color: $light-color;
+  padding: calc($index * 2);
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * $index);
+  position: relative;
+}
+
+.header {
+  font-size: 3rem;
+}
+
+.verticalSeparator {
+  width: 100%;
+  height: calc($index * 0.0625);
+  background-color: $sep-color;
+  margin-top: $index;
+}
+
+.contactFields {
+  display: flex;
+  flex-direction: column;
+  gap: calc($index * 1.5);
+  font-family: "Manrope", sans-serif;
+}
+
+.contacts, .map {
+  height: calc($index * 37.5);
+}
+
+.map {
+  @include respond-to('small') {
+    width: calc(100% - $index * 28.25);
+  }
+  border: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: calc($index * 0.5);
+}
+
+.fieldHeading {
+  font-size: 1rem;
+  color: $dark-color;
+}
+
+.fieldBody {
+  font-size: 1.5rem;
+  color: $accent-color;
+}
+
+.buildRoadBtn {
+  width: calc(100% - $index * 3);
+}
+
+.buildRoadLink {
+  margin-top: auto;
+}

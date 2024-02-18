@@ -1,0 +1,275 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Montserrat:ital,wght@0,100;1,100&display=swap");
+:root {
+  --index: 10px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --index: 12px;
+  }
+}
+@media (min-width: 900px) {
+  :root {
+    --index: 14px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --index: 16px;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --index: 20px;
+  }
+}
+@font-face {
+  font-family: "LT Remark";
+  src: url("../assets/fonts/LT Remark/LTRemark-May2021.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "mr_HamiltoneG";
+  src: url("../assets/fonts/mr_hamiltoneg.ttf");
+  font-weight: 400;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 100%;
+}
+
+html {
+  font-size: var(--index);
+}
+
+body {
+  background-color: #F1EBE1;
+}
+
+p {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.heading, .subheading, .handwritten-text {
+  font-weight: 400;
+}
+
+.heading {
+  font-family: "LT Remark", serif;
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+.subheading {
+  font-family: "Manrope", sans-serif;
+}
+
+.handwritten-text {
+  font-family: "mr_HamiltoneG", serif;
+  color: #406949;
+}
+
+.heading, .subheading {
+  color: #222325;
+}
+
+.main-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1280px) {
+  .main-section {
+    height: 100vh;
+    display: block;
+  }
+}
+.main-section .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: calc(var(--index) * 4);
+  height: fit-content;
+  padding: calc(12 * var(--index)) calc(var(--index) * 3) 0;
+  align-items: center;
+}
+.main-section .main-content .headings {
+  width: 100%;
+}
+@media (min-width: 1280px) {
+  .main-section .main-content {
+    width: 50vw;
+    padding: calc(var(--index) * 3 + (100vh - 2 * var(--index) * 3 - 264px) / 12 * 3 + 48px) calc(var(--index) * 3) 0;
+    align-items: flex-start;
+  }
+}
+.main-section .main-content .handwritten-text {
+  font-size: 4rem;
+}
+.main-section .main-content .heading {
+  font-size: 6rem;
+  margin-top: calc(var(--index) * 0.75);
+}
+.main-section .main-content .subheading {
+  font-size: 1.5rem;
+}
+.main-section .image {
+  width: 100vw;
+  height: 50vh;
+  margin-top: calc(var(--index) * -4.5);
+  z-index: -1;
+  border-left: calc(var(--index) * 0.0625) solid #B2AFAC;
+}
+@media (min-width: 1280px) {
+  .main-section .image {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    max-height: none;
+    margin: 0;
+  }
+}
+.main-section .image .carousel, .main-section .image .slider-wrapper, .main-section .image .slider, .main-section .image .slide, .main-section .image .slide div, .main-section .image .slide img {
+  height: 100%;
+}
+.main-section .image .slide img {
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+.react-datepicker {
+  border: calc(var(--index) * 0.0625) solid #B2AFAC;
+  background-color: #FFFCF9;
+  border-radius: 0;
+  font-family: "Manrope", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 45px 80px, rgba(0, 0, 0, 0.0463) 0 16.43px 29.2px, rgba(0, 0, 0, 0.0365) 0 7.97px 14.18px, rgba(0, 0, 0, 0.0924) 0 3.91px 6.95px, rgba(0, 0, 0, 0.0207) 0 1.55px 2.75px;
+}
+
+.react-datepicker__tab-loop {
+  position: absolute;
+}
+
+.react-datepicker__day--selected {
+  background-color: #406949;
+}
+.react-datepicker__day--selected:hover {
+  background-color: #365f3f;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__day--selected,
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--keyboard-selected {
+  border-radius: 0;
+}
+
+.react-datepicker__header {
+  background-color: #FFFCF9;
+  border-bottom: 1px solid #B2AFAC;
+}
+
+.react-datepicker__current-month {
+  text-transform: capitalize;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #c0e3c7;
+}
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: #406949;
+}
+
+.react-datepicker__input-container > span {
+  outline: none;
+  border: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.125rem;
+  color: #B2AFAC;
+  cursor: pointer;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: calc(var(--index) * 2);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.booking-iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+}
+
+.section {
+  border-top: 1px solid #B2AFAC;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--index) * 3) 0;
+  gap: calc(var(--index) * 3);
+}
+@media (min-width: 768px) {
+  .text-section {
+    flex-direction: row;
+    padding: 0;
+    gap: 0;
+  }
+}
+.text-section li {
+  list-style-type: "— ";
+  margin-bottom: calc(var(--index) * 0.25);
+}
+.text-section .block-container {
+  padding: 0 calc(var(--index) * 3);
+}
+@media (min-width: 768px) {
+  .text-section .block-container {
+    padding: calc(var(--index) * 3);
+  }
+}
+.text-section .block-container:not(:last-child) {
+  border-right: 1px solid #B2AFAC;
+}
+.text-section .heading-container {
+  flex: 1;
+}
+.text-section .description-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.apartments-section, .reviews-section {
+  padding: calc(var(--index) * 3);
+  overflow: hidden;
+}
+.apartments-section .handwritten-text, .reviews-section .handwritten-text {
+  display: none;
+}
+@media (min-width: 768px) {
+  .apartments-section .handwritten-text, .reviews-section .handwritten-text {
+    display: inline;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

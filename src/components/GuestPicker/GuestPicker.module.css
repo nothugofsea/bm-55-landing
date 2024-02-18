@@ -1,0 +1,216 @@
+:root {
+  --index: 10px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --index: 12px;
+  }
+}
+@media (min-width: 900px) {
+  :root {
+    --index: 14px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --index: 16px;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --index: 20px;
+  }
+}
+.modalContainer {
+  position: absolute;
+}
+
+.guestPickerModal {
+  width: calc(var(--index) * 22.5);
+  padding: var(--index) 0;
+  font-family: "Manrope", sans-serif;
+  color: #222325;
+  background-color: #FFFCF9;
+  position: absolute;
+  z-index: 1000;
+  border: calc(var(--index) * 0.0625) solid #B2AFAC;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 45px 80px, rgba(0, 0, 0, 0.0463) 0 16.43px 29.2px, rgba(0, 0, 0, 0.0365) 0 7.97px 14.18px, rgba(0, 0, 0, 0.0924) 0 3.91px 6.95px, rgba(0, 0, 0, 0.0207) 0 1.55px 2.75px;
+}
+.guestPickerModal.inBooking {
+  inset: auto auto 0 0;
+  transform: translate3d(0, calc(-2 * var(--index)), 0);
+}
+
+.separator {
+  width: 100%;
+  height: calc(var(--index) * 0.0625);
+  background-color: #B2AFAC;
+}
+.separator:last-child {
+  display: none;
+}
+
+.guestPickerModal,
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--index);
+}
+
+.sectionsContainer {
+  padding: 0 var(--index);
+}
+
+.totalGuestCount {
+  color: #B2AFAC;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.adultSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.adultSection .headingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.adultSection .headingsContainer .heading, .adultSection .headingsContainer .subheading {
+  font-weight: 500;
+}
+.adultSection .headingsContainer .heading {
+  font-size: 1.125rem;
+}
+.adultSection .headingsContainer .subheading {
+  font-size: 0.75rem;
+}
+
+.adultCounter {
+  display: flex;
+  flex-direction: row;
+  width: 6rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.minusSign {
+  display: block;
+  height: calc(var(--index) * 0.09375);
+  width: calc(var(--index) * 0.75);
+  background-color: #406949;
+}
+
+.plusSign {
+  height: 100%;
+  width: 100%;
+}
+
+.plusSign, .removeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plusSign::before, .plusSign::after, .removeButton::before, .removeButton::after {
+  display: block;
+  height: calc(var(--index) * 0.09375);
+  width: calc(var(--index) * 0.75);
+  background-color: #406949;
+  content: "";
+  position: absolute;
+}
+.plusSign::after, .removeButton::after {
+  transform: rotate(90deg);
+}
+
+.adultCount {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: center;
+  color: #222325;
+  max-width: 2.5rem;
+  border: none;
+  background: none;
+}
+.adultCount:focus {
+  outline: none;
+}
+
+.counterButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1.5px solid #406949;
+  background: none;
+  cursor: pointer;
+}
+
+.child {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.removeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #406949;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+.removeButton:hover {
+  background-color: #365f3f;
+}
+.removeButton:active {
+  background-color: #315a3a;
+}
+.removeButton::before, .removeButton::after {
+  background-color: #FFFCF9;
+}
+.removeButton::before {
+  transform: rotate(45deg);
+}
+.removeButton::after {
+  transform: rotate(135deg);
+}
+
+.childListContainer {
+  border: 1px solid #406949;
+  max-height: 11.875rem;
+  overflow: scroll;
+  position: relative;
+}
+
+.childListHeader, .childAgeField {
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.childListHeader:first-letter, .childAgeField:first-letter {
+  text-transform: uppercase;
+}
+
+.childAgeField:not(:last-child), .childListContainer.opened .childListHeader {
+  border-bottom: 1px solid #B2AFAC;
+}
+
+.childListContainer.opened .childListHeader {
+  color: #B2AFAC;
+  background-color: #FFFCF9;
+  position: sticky;
+  top: 0;
+  cursor: default;
+}
+
+/*# sourceMappingURL=GuestPicker.module.css.map */

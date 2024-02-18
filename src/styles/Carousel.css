@@ -1,0 +1,77 @@
+:root {
+  --index: 10px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --index: 12px;
+  }
+}
+@media (min-width: 900px) {
+  :root {
+    --index: 14px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --index: 16px;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --index: 20px;
+  }
+}
+.slick-track {
+  display: flex;
+  gap: calc(var(--index) * 1.5);
+}
+
+.slick-slider {
+  position: relative;
+}
+
+.slick-slide {
+  width: fit-content !important;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: calc(-4 * var(--index) - 4rem);
+  z-index: 100;
+  right: 0;
+  width: calc(var(--index) * 4);
+  height: calc(var(--index) * 4);
+  cursor: pointer;
+}
+
+.slick-prev {
+  right: calc(var(--index) * 4.75);
+  border: 2px solid #406949;
+  background: none;
+}
+
+.slick-next {
+  background-color: #406949;
+  border: none;
+}
+
+.custom-carousel .slide div {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.custom-carousel .slide img {
+  height: 55.5555555556vw;
+  width: auto !important;
+}
+@media (min-width: 900px) {
+  .custom-carousel .slide img {
+    height: 27.7777777778vw;
+  }
+}
+
+/*# sourceMappingURL=Carousel.css.map */

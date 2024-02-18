@@ -1,0 +1,54 @@
+@import "variables";
+
+.slick-track {
+  display: flex;
+  gap: calc($index * 1.5);
+}
+
+.slick-slider {
+  position: relative;
+}
+
+.slick-slide {
+  width: fit-content !important;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: calc(-4 * $index - 4rem);
+  z-index: 100;
+  right: 0;
+  width: calc($index * 4);
+  height: calc($index * 4);
+  cursor: pointer;
+}
+
+.slick-prev {
+  right: calc($index * 4.75);
+  border: 2px solid $accent-color;
+  background: none;
+}
+
+.slick-next {
+  background-color: $accent-color;
+  border: none;
+}
+
+.custom-carousel {
+  .slide div {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  .slide img {
+    height: calc(100vw / 1.8);
+
+    @include respond-to('medium') {
+      height: calc(100vw / 3.6);
+    }
+    width: auto !important;
+  }
+}

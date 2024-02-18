@@ -1,0 +1,60 @@
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin primaryBtnBackground {
+  background-color: #406949;
+
+  &:hover {
+    background-color: #365f3f;
+  }
+
+  &:active {
+    background-color: #315a3a;
+  }
+}
+
+@mixin block-shadow {
+  box-shadow: rgba(0, 0, 0, 0.07) 0 45px 80px,
+  rgba(0, 0, 0, 0.0463) 0 16.43px 29.2px,
+  rgba(0, 0, 0, 0.0365) 0 7.97px 14.18px,
+  rgba(0, 0, 0, 0.0924) 0 3.91px 6.95px,
+  rgba(0, 0, 0, 0.0207) 0 1.55px 2.75px;
+}
+
+@mixin hoverUnderline($color) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1.5px;
+    background-color: $color;
+
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -2px;
+    transform: scaleX(0);
+
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}

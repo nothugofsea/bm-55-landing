@@ -1,0 +1,63 @@
+@function calcWidth($full-size, $margin, $count, $gutter) {
+  @return calc(($full-size - 2 * $margin - $gutter * ($count - 1)) / $count);
+}
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+$breakpoints: (
+        'small': 768px,
+        'medium': 900px,
+        'large': 1280px,
+        'extra-large': 1920px
+) !default;
+
+:root {
+  --index: 10px;
+}
+
+@include respond-to('small') {
+  :root {
+    --index: 12px;
+  }
+}
+@include respond-to('medium') {
+  :root {
+    --index: 14px;
+  }
+}
+@include respond-to('large') {
+  :root {
+    --index: 16px;
+  }
+}
+@include respond-to('extra-large') {
+  :root {
+    --index: 20px;
+  }
+}
+
+$index: var(--index);
+
+$side-margin: calc($index * 3);
+$grid-gutter: 24px;
+
+$rows-count: 12;
+$row-width: calcWidth(100vh, $side-margin, $rows-count, $grid-gutter);
+
+$cols-count: 12;
+$col-width: calcWidth(100vw, $side-margin, $cols-count, $grid-gutter);
+
+$accent-color: #406949;
+$background-color: #F1EBE1;
+$light-color: #FFFCF9;
+$dark-color: #222325;
+$sep-color: #B2AFAC;

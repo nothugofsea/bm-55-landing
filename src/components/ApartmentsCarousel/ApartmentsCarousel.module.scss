@@ -1,0 +1,140 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.carousel {
+  margin-top: calc($index * 4);
+}
+
+.card {
+  @include block-shadow;
+  width: calc($col-width * 12 + 11 * $grid-gutter - $index);
+
+  @include respond-to('medium') {
+    width: calc($col-width * 6 + 5 * $grid-gutter - $index * 0.25);
+  }
+  background-color: $light-color;
+  padding: calc($index * 1.5);
+  display: flex;
+  flex-direction: column;
+  gap: calc($index * 2);
+}
+
+.cardInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: calc($index * 1.5);
+
+  .cardHeading {
+    font-family: "LT Remark", serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  .features {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+  }
+
+  .separator {
+    display: flex;
+    align-items: center;
+  }
+
+  .verticalSeparator {
+    width: calc($index * 0.0625);
+    height: 1rem;
+    background-color: #B2AFAC;
+  }
+
+  .additionalInfoBtn {
+    font-size: 1.125rem;
+    color: $accent-color;
+    text-transform: uppercase;
+    width: fit-content;
+    cursor: pointer;
+    font-family: "Manrope", sans-serif;
+
+    @include hoverUnderline($accent-color);
+  }
+}
+
+.horizontalSeparator {
+  width: 100%;
+  height: calc($index * 0.0625);
+  background-color: $sep-color;
+}
+
+.bookingSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .priceBlock {
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: calc($index * 0.5);
+
+    .hint {
+      font-size: 1rem;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowLine {
+  width: 28px;
+  height: 2px;
+  background-color: $light-color;
+  border-radius: 2px;
+}
+
+.arrowHead {
+  rotate: 45deg;
+  height: 20px;
+  translate: -12px;
+
+  &::before, &::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 10px;
+    background-color: $light-color;
+    border-radius: 2px;
+  }
+
+  &::after {
+    rotate: 90deg;
+    translate: 4px 4px;
+  }
+}
+
+.leftArrow {
+  transform: scaleX(-1);
+}
+
+.arrowContainer.leftArrow {
+  .arrowLine {
+    background-color: $accent-color
+  }
+
+  .arrowHead::before, .arrowHead::after {
+    background-color: $accent-color;
+  }
+}
